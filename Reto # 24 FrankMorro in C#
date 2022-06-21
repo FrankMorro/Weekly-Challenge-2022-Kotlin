@@ -1,0 +1,86 @@
+
+// ITERATION MASTER
+
+int n = 100;
+int count = 1;
+
+// 1
+Console.WriteLine("*** 1 for ***");
+for (int i = 1; i <= n; i++)
+{
+	Console.WriteLine(i);
+}
+
+// 2
+Console.WriteLine("");
+Console.WriteLine("*** 2 do-while ***");
+count = 1;
+do
+{
+	Console.WriteLine(count);
+	count++;
+} while (count <= n);
+
+// 3
+Console.WriteLine("");
+Console.WriteLine("*** 3 while ***");
+count = 1;
+while (count <= n)
+{
+	Console.WriteLine(count);
+	count++;
+}
+
+// 4
+Console.WriteLine("");
+Console.WriteLine("*** 4 Array ***");
+var array = new byte[n];
+count = 1;
+foreach (var item in array)
+{
+	Console.WriteLine(count.ToString());
+	count++;
+}
+
+// 5
+Console.WriteLine("");
+Console.WriteLine("*** 5 Span ***");
+Span<int> espacioMemoria = stackalloc int[n]; //Crear una region de memoria y la recorremos
+count = 1;
+foreach (var item in espacioMemoria)
+{	
+	Console.WriteLine(count.ToString());
+	count++;
+}
+
+
+// 6 Esta solucion no es eficiente... se repite el bucle
+Console.WriteLine("");
+Console.WriteLine("*** 6 Creando una List ***");
+List<int> lista = new List<int>(n);
+for (int i = 1; i <= n; i++)
+{
+	lista.Add(i);
+}
+foreach (int item in lista)
+{
+	Console.WriteLine(item.ToString());
+}
+
+
+// 7 Funcion recursiva
+Console.WriteLine("");
+Console.WriteLine("*** 7 Funcion Recursiva ***");
+void print100(int i)
+{
+	if (i <= n)
+	{
+		Console.WriteLine(i);
+		i++;
+		print100(i);					
+	}
+}
+print100(1);
+
+
+Console.ReadLine();
